@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Enquiry</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+
+<style type="text/css">
+	  .brandname{
+	  	  		padding: 5px;
+	  	  		background-color:#4CE36D ;
+	  	  		color:white;
+	  	  		text-align: center;
+	         }
+      #tagline{
+      	        color: #000123;
+              }
+      .well{
+      	 background-color: gold;
+
+      }
+      .well:hover{
+      	  background-color: limegreen;
+      	  color:white;
+      	  cursor: pointer;
+      }
+   
+     .cardcontainer
+     {
+         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+         transition: 0.3s;
+         border: 3px solid #E34CE1;
+     }
+     .cardcontainer:hover
+     {
+         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+         
+     }
+     .carddata
+     {
+         padding: 25px;
+         padding-bottom: 10px;
+         width: 100%;
+         background-color: #E34CE1;
+         color:white;
+     }
+     
+     .amountclass
+     {
+         font-size: 20px;
+
+         
+     }  
+
+    .enq_form
+    {
+        background-color: gold;
+        padding: 20px;
+        width: 50%;
+        margin-left: 25%;
+    }    
+</style>
+<script type="text/javascript">
+    function validate_data()
+        {
+            if(document.f1.fname.value =="")
+            {
+                alert("Please enter the first name")
+                document.f1.fname.focus();
+                return false;
+            }
+            var data =/^[A-Za-z]+$/;
+            if(!document.f1.fname.value.match(data))
+            {
+                alert("Please valid First Name   ")
+                document.f1.fname.value.focus();
+                return false;
+            }
+            if(document.f1.lname.value =="")
+            {
+                alert("Please enter the Last name")
+                document.f1.lname.focus();
+                return false;
+            }
+            var data =/^[A-Za-z]+$/;
+            if(!document.f1.lname.value.match(data))
+            {
+                alert("Please valid Last Name   ")
+                document.f1.lname.value.focus();
+                return false;
+            }
+            if(document.f1.phone_no.value =="")
+            {
+                alert("Please enter the Phone no")
+                document.f1.phone_no.focus();
+                return false;
+            }    
+            if(document.f1.phone_no.value.length != 10)
+            {
+                alert("You have entered invalid Phone no   ")
+                document.f1.phone_no.value.focus();
+                return false;
+            }
+            if(document.f1.email.value =="")
+            {
+                alert("Please enter the Email ID")
+                document.f1.email.focus();
+                return false;
+            }
+            if(document.f1.area[0].checked == false && document.f1.area[1].checked == false && document.f1.area[2].checked == false)
+            {
+                alert("Please select Area")
+                return false;
+            }
+        }
+        function show_date_time()
+        {
+            var d = new Date();
+
+            var dd=d.getDate();
+            var mm=d.getMonth()+1;
+            var yy=d.getFullYear();
+
+            var cdate = dd+ "/" + mm + "/" + yy;
+            document.f1.enq_date.value=cdate;
+        }
+</script>
+</head>
+<body onload="show_date_time()">
+	<div class="jumbotron brandname">
+	   	<h2>Euroland Dairy</h2>
+	   	<p id="tagline">Ireland Dairy Since 1950</p>
+	</div>
+    <div class="container-fluid">
+        <div class="row enq_form">
+           	<h3 class="text-center">New Enquiry</h3>
+            <form class="form" name="f1">
+                <div class="form-group">
+                 	<label>Enquiry Date</label>
+                 	<input type="text" name="enq_date" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                 	<label>First Name</label>
+                 	<input type="text" name="fname" class="form-control">
+                </div>
+                <div class="form-group">
+                 	<label>Last Name</label>
+                    <input type="text" name="lname" class="form-control">
+                </div>
+                <div class="form-group">
+                 	<label>Phone No</label>
+                 	<input type="text" name="phone_no" class="form-control">
+                </div>
+                <div class="form-group">
+                 	<label>Email</label>
+                 	<input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                 	<label>Select Area</label>
+                 	<div class="radio-inline">
+                 	   	<input type="radio" name="area" value="Urban">Urban
+                 	</div>
+                    <div class="radio-inline">
+                 	   	<input type="radio" name="area" value="Metro">Metro
+                 	</div> 
+                 	<div class="radio-inline">
+                 	   	<input type="radio" name="area" value="Rural">Rural
+                 	</div> 
+                </div>
+                <div class="form-group text-center">
+                 	<button class="btn btn-primary" onclick="return validate_data()">Submit Enquiry</button>
+                 	<button class="btn btn-primary">Reset Enquiry</button>
+                </div>
+            </form>
+        </div>  <!-- end of enq_form--->	   
+    </div>
+</body>
+</html>
+
+
+

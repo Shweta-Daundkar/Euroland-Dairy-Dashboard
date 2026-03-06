@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>www.euralanddairy.com</title>
+
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+    </script>
+    <style type="text/css">
+	    .brandname{
+	  	 		padding: 5px;
+	    		background-color:#4CE36D ;
+	 	  		color:white;
+	 	  		text-align: center;
+      }
+      #tagline{
+      	  color: #000123;
+        }
+      .loginclass{
+      	  background-image: url("pics/dairy.jpg");
+      	  background-size:cover ;
+          background-repeat: no-repeat;
+    	    height: 450px;
+  	      width: 100%;
+  	      margin-top: -30px;
+      }  
+     
+      #logindiv
+      {
+          padding: 20px;
+          background-color:gold;
+          width: 30%;
+         margin-top: 50px;
+      }
+
+      .inputclass
+      {
+      	  padding: 7px;
+      	  width: 100%;
+      	  border: none;
+      	  margin-bottom: 5px;
+      }      
+
+      .btnclass
+      {
+      	  width: 100%;
+      	  background-color: limegreen;
+      	  color:white;
+      	  border: none;
+      	  padding: 7px;
+      	  margin-bottom: 5px;
+      }
+      .btnclass:hover{
+      	  background-color: #000123;
+      	  color: white;
+      }
+</style>
+<script type="text/javascript">
+  function logincheck()
+  {
+    var uname = document.f1.uname.value;
+    var pass = document.f1.pass.value;
+
+    if(uname=="admin" && pass=="admin123")
+    {
+       window.location.href="dashboard_admin.html"
+    }
+    else if(uname == "Shwetasd" && pass == "Shweta@45")
+    {
+       window.location.href="dashboard_emp.html"
+    }
+    else
+    {
+       alert("Invalid User");
+    }
+  }
+</script>
+</head>
+<body>
+	 <div class="jumbotron brandname">
+	   	<h2>Euroland Dairy</h2>
+	   	<p id="tagline">Ireland Dairy Since 1950</p>
+	 </div>
+       <div class="container-fluid loginclass">
+       	 <div id="logindiv">
+         <form name="f1">   	
+       	   <table cellpadding="5"  align="center">
+       	   	  <tr>
+       	   	  	 <th>
+       	   	  	 	 <h3>Euraland  CRM</h3>
+       	   	  	 </th>
+       	   	  </tr>
+       	      <tr>
+       	         <td>
+       	        	<input type="text" placeholder="Username" name="uname" class="inputclass">
+       	          </td>
+       	      </tr>
+       	      <tr>    
+       	         <td>
+       	        	<input type="password" placeholder="Password" name="pass" class="inputclass">
+       	          </td>
+              </tr>
+              <tr>
+       	         <td>
+       	        	<input type="button" value="Login" class="btnclass" onclick="logincheck()">
+       	          </td>
+              </tr>
+              <tr>
+       	         <td>
+       	        	<input type="reset" value="Reset" class="btnclass">
+       	          </td>
+       	       </tr>
+       	    </table>
+          </form>
+       	</div>  <!-- end of logindiv-->
+      </div>  <!-- end of  container-fluid div-->
+</body>
+</html>
+
+
+

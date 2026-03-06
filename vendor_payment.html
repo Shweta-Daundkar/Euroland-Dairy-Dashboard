@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Vendor Payment</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+  </script>
+
+	<style type="text/css">
+		.brandname{
+			padding: 10px;
+			background-color:#4CE36D ;
+			color: white;
+			text-align: center;
+
+		}
+		#tagline{
+			color:#000123 ;
+		}
+		
+		.well{
+			background-color: gold;
+		}
+
+		.well:hover{
+			background-color: limegreen;
+			color: white;
+			cursor: pointer;
+		}
+
+		.cardcontainer{
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+			transition: 0.3s;
+			border: 2px solid gold ;
+		}
+
+		.cardcontainer:hover{
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+		}
+
+		.carddata{
+			padding: 25px;
+			padding-bottom: 10px;
+			width: 100%;
+			background-color:#E34CE1 ;
+			color: white;
+		}
+
+		.amountclass{
+			font-size: 20px;
+
+		}
+
+		.enq_form{
+			background-color: gold;
+			padding: 20px;
+			width: 40%;
+			margin-left: 25%;
+		}
+	</style>
+	<script type="text/javascript">
+		function validate_data()
+        {
+            if(document.f1.fname.value =="")
+            {
+                alert("Please enter the First name")
+                document.f1.fname.focus();
+                return false;
+            }
+            var data =/^[A-Za-z]+$/;
+            if(!document.f1.fname.value.match(data))
+            {
+                alert("Please valid First Name   ")
+                document.f1.fname.value.focus();
+                return false;
+            }
+            if(document.f1.lname.value =="")
+            {
+                alert("Please enter the Last name")
+                document.f1.lname.focus();
+                return false;
+            }
+            var data =/^[A-Za-z]+$/;
+            if(!document.f1.lname.value.match(data))
+            {
+                alert("Please valid Last Name   ")
+                document.f1.lname.value.focus();
+                return false;
+            }
+            if(document.f1.p_amt.value =="")
+            {
+                alert("Please enter the Payment Amount")
+                document.f1.p_amt.focus();
+                return false;
+            }
+            if(document.f1.business_nature.value =="")
+            {
+                alert("Please enter the Business Nature")
+                document.f1.business_nature.focus();
+                return false;
+            }
+            if(document.f1.mode[0].checked==false && document.f1.mode[1].checked==false && document.f1.mode[2].checked==false)
+            {
+            	alert("Please select Payment mode   ")
+            	return false;
+            }
+            if(document.f1.remark.value =="")
+            {
+                alert("Please enter any Remark   ")
+                document.f1.remark.focus();
+                return false;
+            }
+            if(document.f1.paid_by.value =="")
+            {
+                alert("Please enter Paid By   ")
+                document.f1.paid_by.focus();
+                return false;
+            }
+        }
+        function show_date_time()
+    	{
+    		var d = new Date();
+    		var ctime=d.toLocaleTimeString();
+    		document.f1.p_time.value=ctime;
+
+    		var dd=d.getDate();
+    		var mm=d.getMonth()+1;
+    		var yy=d.getFullYear();
+
+    		var cdate = dd+ "/" + mm + "/" + yy;
+    		document.f1.p_date.value=cdate;
+    	}
+    </script>
+</head>
+<body onload="show_date_time()">
+	<div class="jumbotron brandname">
+		<h2>Euroland Dairy</h2>
+		<p id="tagline">Ireland Dairy Since 1950</p>
+	</div>
+	<div class="container-fluid ">
+		<div class="row enq_form cardcontainer">
+			<h2 class="text-center">Vendor Payment</h2>
+			<form class="form" name="f1" >
+				<div class="form-group">
+					<label>Payment Date</label>
+					<input type="text" name="p_date" class="form-control" readonly>	
+				</div>
+				<div class="form-group">
+					<label>Payment Time</label>
+					<input type="text" name="p_time" class="form-control" readonly>	
+				</div>
+				<div class="form-group">
+					<label>First Name</label>
+					<input type="text" name="fname" class="form-control">	
+				</div>
+				<div class="form-group">
+					<label>Last Name</label>
+					<input type="text" name="lname" class="form-control">	
+				</div>
+				<div class="form-group">
+					<label>Payment Amt</label>
+					<input type="text" name="p_amt" class="form-control">	
+				</div>
+				<div class="form-group">
+					<label>Business Nature</label>
+					<input type="text" name="business_nature" class="form-control">	
+				</div>
+				<div class="form-group">
+					<label>Payment Mode</label>
+					<div class="radio-inline">
+					<input type="radio" name="mode" value="by_cheque" >By Cheque
+				    </div>
+				    <div class="radio-inline">
+					    <input type="radio" name="mode" value="upi" >UPI 
+				    </div>
+				    <div class="radio-inline">
+					    <input type="radio" name="mode" value="net_banking" >Net Banking
+				    </div>
+				</div>
+				<div class="form-group">
+					<label>Remark</label>
+					<input type="text" name="remark" class="form-control">	
+				</div>
+				<div class="form-group">
+					<label>Paid By</label>
+					<input type="text" name="paid_by" class="form-control">
+				</div>
+				<div class="form-group">
+					<button class="btn  btn-primary" onclick="return validate_data()"> Submit</button>
+					<button class="btn  btn-primary"> Reset</button>
+				</div>
+			</form>
+		</div> <!--- Enquiry form --->
+	</div>
+</body>
+</html>
